@@ -55,7 +55,7 @@ class LineAPI {
     path: this.config.LINE_HTTP_URL,
     https: true
   }) {
-    options.headers['X-Line-Application'] = 'IOSIPAD\x097.14.0\x09iPhone_OS\x0910.12.0';
+    options.headers['X-Line-Application'] = 'CHROMEOS	1.4.13	Chrome_OS	1',
     this.options = options;
     this.connection =
       thrift.createHttpConnection(this.config.LINE_DOMAIN_3RD, 443, this.options);
@@ -98,7 +98,7 @@ class LineAPI {
   _qrCodeLogin() {
     this.setTHttpClient();
     return new Promise((resolve, reject) => {
-    this._client.getAuthQrcode(true, 'THIRD-PC',(err, result) => {
+    this._client.getAuthQrcode(true, 'TETX-BOTS,(err, result) => {
       const qrcodeUrl = `line://au/q/${result.verifier}`;
       qrcode.generate(qrcodeUrl,{small: true});
       console.info(`\n\nlink qr code is: ${qrcodeUrl}`)
@@ -145,7 +145,7 @@ class LineAPI {
 				 reqx.password = rsaCrypto.credentials;
 				 reqx.keepLoggedIn = true;
 				 reqx.accessLocation = this.config.ip;
-				 reqx.systemName = 'THIRD-PC';
+				 reqx.systemName = 'TERX-BOTS';
 				 reqx.e2eeVersion = 0;
 				 try{
 					 this._client.loginZ(reqx,
@@ -159,7 +159,7 @@ class LineAPI {
                          this.setTHttpClient(this.options);
 						 this._authConn();
 						 this._client.pinCode = success.pinCode;
-                		 console.info("\n\n=============================\nEnter This Pincode => "+success.pinCode+"\nto your mobile phone in 2 minutes\n=============================");
+                		 console.info("\n\n=============================\nEnter This Pincode => "+success.pinCode+"\nto your mobile phone in 2 minutes\n=====OJO KESUWEN YOOO================");
                 		 this._checkLoginResultType(success.type, success);
 						 reqxy.type = 1;
                		     this._loginWithVerifier((verifierResult) => {

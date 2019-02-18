@@ -9,12 +9,12 @@ const config = require('./config');
 const { Message, OpType, Location } = require('../curve-thrift/line_types');
 //let exec = require('child_process').exec;
 
-const myBot = ['ueacedbe88bf6e2c5cf6188b3a4a26e18','u5a8f1f79740e3dc876a13ab7f7381340'];
+const myBot = ['uf50d888821632d32461e37153ac775c0'];
 const banList = [];//Banned list
 var groupList = new Array();//Group list
 var vx = {};var midnornama,pesane,kickhim;var waitMsg = "no";//DO NOT CHANGE THIS
 const imgArr = ['png','jpg','jpeg','gif','bmp','webp'];//DO NOT CHANGE THIS
-var komenTL = "AutoLike by GoogleX\nline://ti/p/~rakamastah"; //Comment for timeline
+var komenTL = "AutoLike by TERX-BBOTS\nline://ti/p/~gerhanaselatan"; //Comment for timeline
 var bcText = "Masukan teks untuk broadcast";
 var limitposts = '10'; //Output timeline post
 
@@ -84,7 +84,7 @@ class LINE extends LineAPI {
 => !kepo\n\
 => !key\n\
 => !kickban *ADMIN*\n\
-=> !kickall *ADMIN*\n\
+=> !terx *ADMIN*\n\
 => !kickme\n\
 => !msg\n\
 => !mute *ADMIN*\n\
@@ -101,7 +101,7 @@ class LINE extends LineAPI {
 => !whattime\n\
 => !yousound\n\
 => !youtube\n\
-\n\n# http://line.me/ti/p/4bvwOIMft8  ^_^";
+\n\n# http://line.me/ti/p/~gerhanselatan ^_^";
         var that = this;
     }
 
@@ -139,7 +139,7 @@ class LINE extends LineAPI {
 		if(operation.type == 16 && this.stateStatus.salam == 1){//join group
 			let halo = new Message();
 			halo.to = operation.param1;
-			halo.text = "Halo, Salam Kenal ^_^ !";
+			halo.text = "Hai all, salken yee^_^ !";
 			this._client.sendMessage(0, halo);
 		}
 		
@@ -147,7 +147,7 @@ class LINE extends LineAPI {
 		    let halobos = new Message();
 			halobos.to = operation.param1;
 			halobos.toType = 2;
-			halobos.text = "Halo bos !, selamat datang di group ini bos !";
+			halobos.text = "Hai Lur !, selamat datang di group ini yaa,,smoga betah dimari !";
 			this._client.sendMessage(0, halobos);
 		}else if(operation.type == 17 && this.stateStatus.salam == 1){//ada yang join
 			let seq = new Message();
@@ -161,7 +161,7 @@ class LINE extends LineAPI {
 		    let babay = new Message();
 			babay.to = operation.param1;
 			babay.toType = 2;
-			babay.text = "Ada apa bang ? kok leave ?";
+			babay.text = "Ye elah kq leave, Baper yee hhhh ?";
 			this._invite(operation.param1,[operation.param2]);
 			this._client.sendMessage(0, babay);
 		}else if(operation.type == 15 && !isAdminOrBot(operation.param2)){
@@ -173,7 +173,7 @@ class LINE extends LineAPI {
 		if(operation.type == 5 && this.stateStatus.salam == 1) {//someone adding me..
             let halo = new Message();
 			halo.to = operation.param1;
-			halo.text = "Creator: line.me/ti/p/4bvwOIMft8 (~GoogleX)";
+			halo.text = "Creator: line.me/ti/p/~gerhanaselatan (~TERX-BOTS)";
 			this._client.sendMessage(0, halo);
         }
 
@@ -192,7 +192,7 @@ class LINE extends LineAPI {
             }else if(!isAdminOrBot(operation.param3)){
 				this.textMessage("0106",kasihtau,operation.param3,1);
 				if(!isAdminOrBot(operation.param2)){
-					kasihtau.text = "Jangan main kick !";
+					kasihtau.text = "Woy jangan main kick disini,,, !";
 				    this._client.sendMessage(0, kasihtau);
 				}
 				if(this.stateStatus.protect == 1){
@@ -526,14 +526,14 @@ class LINE extends LineAPI {
 				seq.contentMetadata = { mid: txt };
 				this._client.sendMessage(0, seq);
 			}else{
-				this._sendMessage(seq,"Tag orangnya atau kirim midnya bang !");
+				this._sendMessage(seq,"Tag orangnya atau kirim midnya Lur !");
 			}
 		}
 		if(txt == "!sendcontact" && !isBanned(banList, seq.from_)){
 			if(vx[2] == null || typeof vx[2] === "undefined" || !vx[2]){
 			    waitMsg = "yes";
 			    vx[0] = seq.from_;vx[1] = txt;vx[2] = "arg1";
-			    this._sendMessage(seq,"Kontaknya siapa bang ? #Tag orangnya atau kirim midnya");
+			    this._sendMessage(seq,"Kontaknya siapa Lur ? #Tag orangnya aja");
 			}else{
 				waitMsg = "no";vx[0] = "";vx[1] = "";vx[2] = "";vx[3] = "";
 				this._sendMessage(seq,"#CANCELLED");
@@ -558,10 +558,10 @@ class LINE extends LineAPI {
 				let bang = new Message();
 				bang.to = seq.to;
 				if(vx[4] == "sudah"){
-					bang.text = "Dia sudah masuk friendlist bang, gk bisa ku add lagi !";
+					bang.text = "Dia sudah masuk friendlist Lur, gk bisa ku add lagi, karna dia teroris !";
 					this._client.sendMessage(0, bang);
 				}else{
-				    bang.text = "Ok bang !, Sudah ku add !";
+				    bang.text = "Ok Lur !, Sudah ku add !";
 				    await this._client.findAndAddContactsByMid(seq, midnya);
 				    this._client.sendMessage(0, bang);
 				}vx[4] = "";
@@ -579,10 +579,10 @@ class LINE extends LineAPI {
 				let bang = new Message();
 				bang.to = seq.to;
 				if(vx[4] == "sudah"){
-					bang.text = "Dia sudah masuk friendlist bang, gk bisa ku add lagi !";
+					bang.text = "Dia sudah masuk friendlist Lur, ga bisa ku add lagi !";
 					this._client.sendMessage(0, bang);
 				}else{
-				    bang.text = "Ok bang !, Sudah ku add !";
+				    bang.text = "Ok Lur !, Sudah ku add !";
 				    await this._client.findAndAddContactsByMid(seq, midnya);
 				    this._client.sendMessage(0, bang);
 				}vx[4] = "";
@@ -602,7 +602,7 @@ class LINE extends LineAPI {
 					bang.text = "Dia sudah masuk friendlist bang, gk bisa ku add lagi !";
 					this._client.sendMessage(0, bang);
 				}else{
-				    bang.text = "Ok bang !, Sudah ku add !";
+				    bang.text = "Ok Lur !, Sudah ku add !";
 				    await this._client.findAndAddContactsByMid(seq, midnya);
 				    this._client.sendMessage(0, bang);
 				}vx[4] = "";
@@ -660,7 +660,7 @@ class LINE extends LineAPI {
 			if(vx[2] == null || typeof vx[2] === "undefined" || !vx[2]){
 			    waitMsg = "yes";
 			    vx[0] = seq.from_;vx[1] = txt;vx[2] = "arg1";
-			    this._sendMessage(seq,"Cek ID siapa bang ? #Kirim kontaknya");
+			    this._sendMessage(seq,"Cek ID siapa Lur ? #Kirim kontaknya");
 				this._sendMessage(seq,"Atau bisa juga @tag orangnya");
 			}else{
 				waitMsg = "no";vx[0] = "";vx[1] = "";vx[2] = "";vx[3] = "";
@@ -756,7 +756,7 @@ vx[0] = "";vx[1] = "";waitMsg = "no";vx[2] = "";vx[3] = "";
 			if(vx[2] == null || typeof vx[2] === "undefined" || !vx[2]){
 			    waitMsg = "yes";
 			    vx[0] = seq.from_;vx[1] = txt;vx[2] = "arg1";
-			    this._sendMessage(seq,"Kepo sama siapa bang ? #kirim midnya");
+			    this._sendMessage(seq,"Kepo sama siapa Lur ? #kirim midnya");
 			}else{
 				waitMsg = "no";vx[0] = "";vx[1] = "";vx[2] = "";vx[3] = "";
 				this._sendMessage(seq,"#CANCELLED");
@@ -771,7 +771,7 @@ vx[0] = "";vx[1] = "";waitMsg = "no";vx[2] = "";vx[3] = "";
 				this._sendMessage(seq,"#CANCELLED");
 			}else if(vx[2] == "arg1" && vx[3] == "mid" && cot[1]){
 				let bang = new Message();bang.to = seq.to;
-				bang.text = "OK !, btw pesan-nya apa ?"
+				bang.text = "OK !, btw pesan-nya opo?"
 				this._client.sendMessage(0,bang);
 				let ment = seq.contentMetadata.MENTION;
 			    let xment = JSON.parse(ment);let pment = xment.MENTIONEES[0].M;
@@ -780,12 +780,12 @@ vx[0] = "";vx[1] = "";waitMsg = "no";vx[2] = "";vx[3] = "";
 				vx[2] = "arg2";
 			}else if(vx[2] == "arg1" && vx[3] == "mid" && seq.contentType == 13){
 				let midnya = seq.contentMetadata.mid;let bang = new Message();bang.to = seq.to;
-				bang.text = "OK !, btw pesan-nya apa ?"
+				bang.text = "OK !, btw pesan-nya opo ?"
 				this._client.sendMessage(0,bang);
 				vx[4] = midnya;
 				vx[2] = "arg2";
 			}else if(vx[2] == "arg1" && vx[3] == "mid" && panjang.length > 30){
-				this._sendMessage(seq,"OK !, btw pesan-nya apa ?");
+				this._sendMessage(seq,"OK !, btw pesan-nya opo ?");
 				vx[4] = txt;
 				vx[2] = "arg2";
 			}else if(vx[2] == "arg2" && vx[3] == "mid"){
@@ -1166,11 +1166,7 @@ Link Download: "+idU.id+"\n";
 				let hasil;let hasiltxt = "「 Anime Guess 」\n\n";
 				this._download("https://obs-sg.line-apps.com/talk/m/download.nhn?oid="+seq.id+"&tid=original","img",0,(result) => {
 					const filepath = path.resolve(result);
-                    //let buffx = fs.readFileSync(filepath);
-                    // convert binary data to base64 encoded string
-					//let cmx = new command();
                     this._base64Image(filepath, (result) => {
-					//let base64IMG = result.toString('base64');
 					let data = {
 					   method: 'POST',
              		   uri: "https://whatanime.ga/search",
@@ -1187,7 +1183,6 @@ Link Download: "+idU.id+"\n";
                            'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
                            'x-requested-with':'XMLHttpRequest'
                        },
-            		   //json: true // Automatically parses the JSON string in the response
             		};
 					this._animePost(data,(result) => {
 						let ret = [];let M = new Message();M.to = seq.to;
@@ -1222,11 +1217,7 @@ Link Download: "+idU.id+"\n";
 				let hasil;let hasiltxt = "「 Anime Guess 」\n\n";
 				this._download("https://obs-sg.line-apps.com/talk/m/download.nhn?oid="+vx[3]+"&tid=original","img",0,(result) => {
 					const filepath = path.resolve(result);
-                    //let buffx = fs.readFileSync(filepath);
-                    // convert binary data to base64 encoded string
-					//let cmx = new command();
                     this._base64Image(filepath, (result) => {
-					//let base64IMG = result.toString('base64');
 					let data = {
 					   method: 'POST',
              		   uri: "https://whatanime.ga/search",
@@ -1243,7 +1234,6 @@ Link Download: "+idU.id+"\n";
                            'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
                            'x-requested-with':'XMLHttpRequest'
                        },
-            		   //json: true // Automatically parses the JSON string in the response
             		};
 					this._animePost(data,(result) => {
 						let ret = [];let M = new Message();M.to = seq.to;
@@ -1278,11 +1268,7 @@ Link Download: "+idU.id+"\n";
 				let hasil;let hasiltxt = "「 Anime Guess 」\n\n";
 				this._download("https://obs-sg.line-apps.com/talk/m/download.nhn?oid="+vx[3]+"&tid=original","img",0,(result) => {
 					const filepath = path.resolve(result);
-                    //let buffx = fs.readFileSync(filepath);
-                    // convert binary data to base64 encoded string
-					//let cmx = new command();
                     this._base64Image(filepath, (result) => {
-					//let base64IMG = result.toString('base64');
 					let data = {
 					   method: 'POST',
              		   uri: "https://whatanime.ga/search",
@@ -1299,7 +1285,6 @@ Link Download: "+idU.id+"\n";
                            'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
                            'x-requested-with':'XMLHttpRequest'
                        },
-            		   //json: true // Automatically parses the JSON string in the response
             		};
 					this._animePost(data,(result) => {
 						let ret = [];let M = new Message();M.to = seq.to;
@@ -1332,12 +1317,9 @@ Link Download: "+idU.id+"\n";
 			} else if(vx[2] == "arg4" && txt == "page4"){
 				let hasil;let hasiltxt = "「 Anime Guess 」\n\n";
 				this._download("https://obs-sg.line-apps.com/talk/m/download.nhn?oid="+vx[3]+"&tid=original","img",0,(result) => {
-					const filepath = path.resolve(result);
-                    //let buffx = fs.readFileSync(filepath);
-                    // convert binary data to base64 encoded string
-					//let cmx = new command();
+					const filepath = path.resolve(result);            
+           
                     this._base64Image(filepath, (result) => {
-					//let base64IMG = result.toString('base64');
 					let data = {
 					   method: 'POST',
              		   uri: "https://whatanime.ga/search",
@@ -1354,7 +1336,6 @@ Link Download: "+idU.id+"\n";
                            'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
                            'x-requested-with':'XMLHttpRequest'
                        },
-            		   //json: true // Automatically parses the JSON string in the response
             		};
 					this._animePost(data,(result) => {
 						let ret = [];let M = new Message();M.to = seq.to;
@@ -1653,14 +1634,14 @@ Link Download: "+idU.id+"\n";
             })
         }*/
 
-        if(txt === '!kickall' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
+        if(txt === '!tetx' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
             let { listMember } = await this.searchGroup(seq.to);
             for (var i = 0; i < listMember.length; i++) {
                 if(!isAdminOrBot(listMember[i].mid)){
                     this._kickMember(seq.to,[listMember[i].mid])
                 }
             }
-        }else if(txt === '!kickall' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
+        }else if(txt === '!terx' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
 		
 		if(txt == '!key') {
 			let botOwner = await this._client.getContacts([myBot[0]]);
