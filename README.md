@@ -1,7 +1,6 @@
-# alphat-third
--Forked version of LineAlphat JS #DEV #22/12/2017 #18PM 
+# TERX-BOTS
+-Forked version of LineAlphat JS #DEV #19/02/2019 #03AM 
 
--LineAlphat -> https://github.com/alfathdirk/LineAlphatJS
 
 -Status: Very Good
 
@@ -15,7 +14,7 @@
 
 -How to run bot for the first time ?
 
--git clone https://github.com/satriapasa/SatriaJS
+-git clone https://github.com/Sadisbotsolo/TERX-JS
 
 -cd alphat-third && npm install
 
@@ -25,7 +24,7 @@
 
 -IMPORTANT
 
--PLEASE DO npm i FOR THIS UPDATE -> #27/10/2017
+-PLEASE DO npm i FOR THIS UPDATE -> #19/02/2019
 
 -Still work 👷
 -CHANGELOG
